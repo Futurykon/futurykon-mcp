@@ -1,0 +1,30 @@
+{
+  "name": "futurykon-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Futurykon — connect AI agents to the Futurykon prediction platform",
+  "main": "dist/index.js",
+  "bin": {
+    "futurykon-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "futurykon", "prediction-market", "ai"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Futurykon/futurykon-mcp.git"
+  }
+}
