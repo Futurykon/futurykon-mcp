@@ -7,6 +7,11 @@ const MCP_EDGE_URL =
   process.env.FUTURYKON_MCP_URL ??
   'https://qqegucrcohiwhbhhwrjw.supabase.co/functions/v1/mcp';
 
+// Public anon key — safe to embed, this is a project identifier not a secret.
+// The real auth happens via the api_key in the request body (validated server-side).
+const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFxZWd1Y3Jjb2hpd2hiaGh3cmp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTI5OTYsImV4cCI6MjA4NDAyODk5Nn0.jgsNXuxE_VbS3cCOBNHoCahoyztz_0YQWXRJ_v1syb0';
+
 const API_KEY =
   process.env.FUTURYKON_API_KEY ??
   (() => {
@@ -29,7 +34,11 @@ if (!API_KEY) {
 async function callTool(tool: string, params: Record<string, unknown>) {
   const res = await fetch(MCP_EDGE_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+    },
     body: JSON.stringify({ tool, params, api_key: API_KEY }),
   });
   const json = (await res.json()) as { data?: unknown; error?: string };
