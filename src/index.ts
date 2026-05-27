@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const MCP_EDGE_URL =
   process.env.FUTURYKON_MCP_URL ??
-  'https://YOUR_PROJECT_REF.supabase.co/functions/v1/mcp';
+  'https://qqegucrcohiwhbhhwrjw.supabase.co/functions/v1/mcp';
 
 const API_KEY =
   process.env.FUTURYKON_API_KEY ??
