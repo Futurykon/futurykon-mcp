@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "MCP server for Futurykon — connect AI agents to the Futurykon prediction platform",
   "main": "dist/index.js",
+  "type": "module",
   "bin": {
     "futurykon-mcp": "dist/index.js"
   },
